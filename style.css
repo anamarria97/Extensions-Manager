@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --neutral-900: hsl(227, 75%, 14%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-600: hsl(226, 11%, 37%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-200: hsl(217, 61%, 90%);
+  --neutral-100: hsl(0, 0%, 93%);
+  --neutral-0:   hsl(200, 60%, 99%);
+  --red-400: hsl(3, 86%, 64%);
+  --red-500: hsl(3, 71%, 56%);
+  --red-700: hsl(3, 77%, 44%);
+  --light-gradient: linear-gradient(to bottom right, #f8f9fd, #dde3f2);
+  --dark-gradient: linear-gradient(to bottom right, #1c1f2b, #10121a);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+  background: var(--light-gradient);
+  color: var(--neutral-900);
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+body.dark {
+  background: var(--dark-gradient);
+  color: var(--neutral-0);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.theme-toggle input {
+  display: none;
+}
+
+.slider {
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background: var(--neutral-300);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter {
+  background: var(--neutral-200);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter.active,
+.filter:hover {
+  background: var(--red-400);
+  color: white;
+}
+
+.extension-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.extension-card {
+  background: var(--neutral-800);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--neutral-0);
+  height: 100%;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ext-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.extension-info h3 {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.extension-info p {
+  color: var(--neutral-600);
+  font-size: 0.9rem;
+}
+
+body.dark .extension-info p {
+  color: var(--neutral-200);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remove {
+  background: var(--red-400);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove:hover {
+  background: var(--red-500);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.slider-toggle:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider-toggle {
+  background-color: var(--red-500);
+}
+
+input:checked + .slider-toggle:before {
+  transform: translateX(20px);
+}
+
+.attribution {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--neutral-600);
+}
+
+.attribution a {
+  color: var(--red-500);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .extension-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    margin-left: 0;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ext-icon {
+    margin-bottom: 0.5rem;
+  }
+}
