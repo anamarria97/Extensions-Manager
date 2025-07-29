@@ -1,29 +1,25 @@
-#  Browser Extensions Manager UI
+# Browser Extensions Manager UI
 
-Salut! 
-Acesta este un proiect front-end simplu, care imită un manager de extensii de browser. A fost realizat ca parte dintr-un challenge pe [Frontend Mentor](https://www.frontendmentor.io/), pentru a exersa lucrul cu interfețe UI, temă dark/light, filtre și manipularea DOM-ului cu JavaScript.
-
----
-
-##  Despre proiect
-
- Funcționalități principale:
--  Afișează o listă de extensii de browser (simulate)
--  Comutare între light mode și dark mode
--  Filtrare după extensii active, inactive sau toate
--  Posibilitatea de a „șterge” extensii
--  Actualizarea stării unei extensii (activă/inactivă)
-
-> Toate datele sunt stocate într-un fișier `data.json` local (nu există backend).
+This is a simple front-end project that mimics a browser extensions manager. It was created as part of a challenge on [Frontend Mentor](https://www.frontendmentor.io/) to practice working with UI interfaces, dark/light themes, filters, and DOM manipulation using JavaScript.
 
 ---
 
-##  Tehnologii folosite
+##  About the Project
+
+### Main Features:
+- Displays a list of (simulated) browser extensions
+- Toggle between light mode and dark mode
+- Filter by active, inactive, or all extensions
+- Ability to "delete" extensions
+- Update the status of an extension (active/inactive)
+
+> All data is stored locally in a `data.json` file (no backend involved).
+
+---
+
+##  Technologies Used
 
 - **HTML5**
-- **CSS3** (design responsive + temă dark/light)
-- **JavaScript** (DOM, events, filtering)
-- Font: [Noto Sans](https://fonts.google.com/specimen/Noto+Sans)
-
----
-
+- **CSS3** (responsive design + dark/light theme)
+- **JavaScript (ES6+)**
+- **JSON** (for mock data)
